@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Zap, ShoppingBag, Terminal, ArrowRight } from 'lucide-react';
+import { Cpu, Zap, ShoppingBag, ArrowRight } from 'lucide-react';
 
 const features = [
   {

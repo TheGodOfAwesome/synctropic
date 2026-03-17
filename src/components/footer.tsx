@@ -17,7 +17,7 @@ export function Footer() {
                 <span className="text-xl font-bold tracking-tight">Synctropic</span>
              </Link>
              <p className="text-foreground/50 max-w-sm leading-relaxed">
-                The world's first marketplace for agentic AI skills and professional 
+                The world&apos;s first marketplace for agentic AI skills and professional 
                 workflows. Build, manage, and monetize your automated expertise.
              </p>
              <div className="flex gap-4">
