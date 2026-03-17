@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-electric-blue: #0089ff;
+  --color-background-dark: #050505;
+  --color-background-light: #fefefe;
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-subtle-light: rgba(0, 0, 0, 0.05);
+  
+  --animate-flicker: flicker 2s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+:root {
+  --background: #fefefe;
+  --foreground: #111111;
+  --electric-blue: #0089ff;
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #fefefe;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border-subtle-light);
+  }
+  .dark * {
+    border-color: var(--color-border-subtle);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.electric-glow {
+  box-shadow: 0 0 20px rgba(0, 137, 255, 0.2);
+}
+
+.dark .electric-glow {
+  box-shadow: 0 0 30px rgba(0, 137, 255, 0.3);
+}
