@@ -2,67 +2,87 @@
 
 @theme {
   --color-electric-blue: #0089ff;
-  --color-background-dark: #050505;
-  --color-background-light: #fefefe;
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
-  --color-border-subtle-light: rgba(0, 0, 0, 0.05);
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   
   --animate-flicker: flicker 2s infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   @keyframes flicker {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+    50% { opacity: 0.8; }
   }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); }
   }
 }
 
 :root {
-  --background: #fefefe;
-  --foreground: #111111;
+  --background: #000000;
+  --foreground: #ffffff;
   --electric-blue: #0089ff;
 }
 
-.dark {
-  --background: #050505;
-  --foreground: #fefefe;
-}
-
 @layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-geist-mono), monospace;
+  }
+
   * {
-    border-color: var(--color-border-subtle-light);
-  }
-  .dark * {
     border-color: var(--color-border-subtle);
+    border-radius: 2px !important;
+  }
+
+  h1, h2, h3, h4, .mono {
+    font-family: var(--font-geist-mono), monospace;
+    letter-spacing: -0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
+/* Custom CSS Classes (Avoiding @apply for unknown utilities in build) */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.dark .glass {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.glass-strong {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(to bottom right, #ffffff, #ffffff, rgba(255, 255, 255, 0.4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .electric-glow {
-  box-shadow: 0 0 20px rgba(0, 137, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 137, 255, 0.1);
 }
 
-.dark .electric-glow {
-  box-shadow: 0 0 30px rgba(0, 137, 255, 0.3);
+.video-overlay {
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+}
+
+/* Utility classes that can still use @apply if they use standard tailwind utilities */
+@layer components {
+  .btn-primary {
+    @apply h-11 px-6 bg-electric-blue text-white font-bold text-xs uppercase tracking-widest transition-all hover:brightness-110 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply h-11 px-6 border border-white/10 text-white font-bold text-xs uppercase tracking-widest transition-all hover:bg-white/5 active:scale-95 flex items-center justify-center gap-2;
+  }
 }

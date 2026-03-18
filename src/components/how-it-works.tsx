@@ -2,88 +2,119 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MousePointer2, Settings, Rocket } from 'lucide-react';
+import { Search, Scale, BarChart3, ChevronRight, Terminal as TerminalIcon } from 'lucide-react';
 
 const steps = [
   {
-    title: "Connect",
-    description: "Plug in your data sources, existing tools, and AI models. Our seamless integration layer handles the complexity of API orchestration.",
-    icon: <MousePointer2 className="h-6 w-6" />,
-    color: "bg-blue-500"
+    title: "Researcher",
+    description: "Scrapes local property comps, pricing history, and historical valuation data in real-time.",
+    icon: <Search className="h-5 w-5" />,
+    label: "AGENT_RESEARCH"
   },
   {
-    title: "Build",
-    description: "Define your unique process using our visual flow builder or code-first SDK. Turn domain expertise into automated agentic skills.",
-    icon: <Settings className="h-6 w-6" />,
-    color: "bg-electric-blue"
+    title: "Legal Analyst",
+    description: "Automated review of local zoning rules, housing laws, and regional legal landscapes.",
+    icon: <Scale className="h-5 w-5" />,
+    label: "AGENT_LEGAL"
   },
   {
-    title: "Scale",
-    description: "Deploy your workflows as 'instances' that run autonomously. Monetize your skills on the marketplace and scale your impact.",
-    icon: <Rocket className="h-6 w-6" />,
-    color: "bg-cyan-500"
+    title: "Market Analyst",
+    description: "Cross-references regional events and occupancy trends for seasonal revenue projections.",
+    icon: <BarChart3 className="h-5 w-5" />,
+    label: "AGENT_MARKET"
+  },
+  {
+    title: "Report Gen",
+    description: "Generates a final, client-ready profitability report with revenue and cost projections.",
+    icon: <TerminalIcon className="h-5 w-5" />,
+    label: "AGENT_OUTPUT"
   }
 ];
 
 export function HowItWorks() {
   return (
-    <section className="py-24 px-4 relative overflow-hidden bg-white/[0.02] dark:bg-black/20">
+    <section id="how-it-works" className="py-32 px-4 relative overflow-hidden bg-black border-t border-white/5">
       <div className="mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
-            From Process to <br />
-            <span className="text-electric-blue">Performance in Seconds</span>
+        <div className="text-center mb-24">
+          <div className="mono text-electric-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-4">
+             Operational Workflow
+          </div>
+          <h2 className="text-4xl font-extrabold tracking-tighter sm:text-7xl text-white mb-8">
+            How a Synctropic <br />
+            <span className="text-gradient">Instance Operates</span>
           </h2>
-          <p className="mt-4 text-lg text-foreground/60 max-w-2xl mx-auto">
-            A simple three-step journey to transform how you build and scale agentic intelligence.
+          <p className="text-lg text-foreground/40 max-w-2xl mx-auto mono">
+            Example: Scaling an <span className="text-white">Airbnb Investment Consultant</span> via automated agentic clusters.
           </p>
         </div>
 
-        <div className="relative">
-          {/* Connecting line */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-electric-blue/20 to-transparent -translate-y-1/2 hidden lg:block"></div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {steps.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="relative group text-center"
-              >
-                <div className="relative mb-8 flex justify-center">
-                  <div className={`h-20 w-20 rounded-3xl ${step.color} flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                    {step.icon}
-                  </div>
-                  <div className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-background border border-white/10 flex items-center justify-center font-bold text-electric-blue text-lg shadow-lg">
-                    {i + 1}
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {steps.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="relative p-8 border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-colors group"
+            >
+              <div className="flex justify-between items-start mb-8">
+                <div className="h-12 w-12 border border-electric-blue/20 bg-electric-blue/5 flex items-center justify-center text-electric-blue group-hover:border-electric-blue/50 transition-colors">
+                  {step.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                <p className="text-lg text-foreground/60 leading-relaxed px-4">
-                  {step.description}
-                </p>
-                
-                {/* Visual arrow for mobile/tablet */}
-                {i < steps.length - 1 && (
-                  <div className="mt-8 flex justify-center lg:hidden text-electric-blue/30">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="12" y1="5" x2="12" y2="19"></line>
-                      <polyline points="19 12 12 19 5 12"></polyline>
-                    </svg>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
+                <div className="mono text-[9px] text-foreground/20 font-bold tracking-widest uppercase">
+                  Step_0{i + 1}
+                </div>
+              </div>
+              
+              <div className="mono text-[10px] text-electric-blue font-bold tracking-tighter mb-2">
+                {step.label} {/* ACTIVE */}
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-white tracking-tight">{step.title}</h3>
+              <p className="text-[13px] text-foreground/40 leading-relaxed mono">
+                {step.description}
+              </p>
+
+              {/* Connector for desktop */}
+              {i < steps.length - 1 && (
+                <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 z-20 text-white/10">
+                   <ChevronRight />
+                </div>
+              )}
+            </motion.div>
+          ))}
         </div>
+
+        {/* Technical Visual Proof / Log Area */}
+        <motion.div 
+           initial={{ opacity: 0, scale: 0.98 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+           className="mt-16 p-1 border border-white/10 glass-strong overflow-hidden"
+        >
+           <div className="flex items-center justify-between border-b border-white/5 bg-white/5 px-4 py-2">
+              <div className="flex items-center gap-2">
+                 <TerminalIcon className="h-3 w-3 text-electric-blue" />
+                 <span className="mono text-[9px] font-bold text-foreground/40 uppercase tracking-widest">Execution_Log // instance_id: airbnb_consult_01</span>
+              </div>
+              <div className="flex gap-1">
+                 <div className="h-1.5 w-1.5 rounded-full bg-green-500/50"></div>
+                 <div className="mono text-[8px] text-green-500/50 font-bold uppercase">System_Healthy</div>
+              </div>
+           </div>
+           <div className="p-6 bg-black/60 mono text-[10px] space-y-1.5 overflow-hidden font-medium">
+              <div className="text-foreground/20">[14:02:11] INITIALIZING: AGENT_INGRESS...</div>
+              <div className="text-foreground/40">[14:02:12] FETCHING: market_data_atlanta_q3.json [SUCCESS]</div>
+              <div className="text-electric-blue">[14:02:14] TRIGGER: AGENT_LEGAL activation [FILE_EVENT]</div>
+              <div className="text-foreground/40">[14:02:15] ANALYZING: local_zoning_codes_30303 [OK]</div>
+              <div className="text-foreground/40">[14:02:18] COMPUTING: seasonal_revenue_projections...</div>
+              <div className="text-white border-l-2 border-electric-blue pl-3 py-1 bg-electric-blue/5">
+                 [14:02:20] INSTANCE_STATE: Profitability Engine suggests +18.4% YoY Growth
+              </div>
+              <div className="text-foreground/20 italic animate-pulse">[14:02:21] WAITING: Output formatted for client report...</div>
+           </div>
+        </motion.div>
       </div>
-      
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 h-96 w-96 bg-electric-blue/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 h-96 w-96 bg-blue-500/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
     </section>
   );
 }
