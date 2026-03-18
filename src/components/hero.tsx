@@ -17,7 +17,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-20 grayscale"
+          className="absolute inset-0 h-full w-full object-cover opacity-40 grayscale contrast-125"
           poster="/fallback-gradient.jpg"
         >
           <source src="/ftl.mp4" type="video/mp4" />
@@ -46,7 +46,7 @@ export function Hero() {
         >
           <div className="flex items-center justify-center gap-3">
              <div className="h-[1px] w-8 bg-electric-blue/30"></div>
-             <span className="mono text-[10px] font-bold tracking-[0.4em] uppercase text-electric-blue">
+             <span className="mono text-xs font-bold tracking-[0.4em] uppercase text-electric-blue/80">
                 Protocol v0.42.0 // Active
              </span>
              <div className="h-[1px] w-8 bg-electric-blue/30"></div>
@@ -57,7 +57,7 @@ export function Hero() {
             <span className="text-gradient">Experience</span>
           </h1>
           
-          <p className="mx-auto max-w-3xl text-lg text-foreground/40 sm:text-2xl leading-relaxed mono">
+          <p className="mx-auto max-w-3xl text-xl text-foreground/60 sm:text-2xl leading-relaxed mono font-medium">
              &quot;We help you build an instance of your process.&quot;
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.4 }}
           className="mt-32 w-full max-w-5xl mx-auto"
         >
-          <div className="relative border border-white/10 glass-strong p-1 overflow-hidden">
+          <div className="relative border border-white/10 glass-premium p-1 overflow-hidden">
              {/* Header Bar */}
              <div className="flex items-center justify-between border-b border-white/5 bg-white/5 px-4 py-2">
                 <div className="flex items-center gap-6">

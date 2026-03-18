@@ -30,9 +30,9 @@ const FeatureVisualization = ({ index }: { index: number }) => {
   if (index === 0) {
     return (
       <div className="relative h-full w-full flex flex-col p-6 bg-black/60 mono">
-        <div className="flex items-center gap-2 mb-4 opacity-50">
-           <TerminalIcon className="h-3 w-3" />
-           <span className="text-[10px] uppercase tracking-widest">Orchestrator_Process_Heap</span>
+        <div className="flex items-center gap-2 mb-4 opacity-70">
+           <TerminalIcon className="h-4 w-4 text-electric-blue" />
+           <span className="text-xs uppercase tracking-widest font-bold">Orchestrator_Process_Heap</span>
         </div>
         <div className="flex-1 space-y-2 text-[10px]">
            {[
@@ -98,7 +98,7 @@ const FeatureVisualization = ({ index }: { index: number }) => {
                <div className="flex items-center gap-3">
                   <div className="h-10 w-full border border-electric-blue/20 bg-electric-blue/5 flex items-center justify-center">
                      <Shield className="h-4 w-4 text-electric-blue" />
-                     <span className="mono text-[8px] ml-2 text-electric-blue tracking-tighter uppercase font-bold">Signed_Payload</span>
+                     <span className="mono text-xs ml-2 text-electric-blue tracking-tighter uppercase font-bold">Signed_Payload</span>
                   </div>
                </div>
             </div>
@@ -114,8 +114,8 @@ const FeatureVisualization = ({ index }: { index: number }) => {
   return (
     <div className="relative h-full w-full flex flex-col p-6 bg-black/60 mono overflow-hidden">
        <div className="flex items-center justify-between mb-8">
-          <span className="text-[10px] text-foreground/40 font-bold tracking-widest uppercase">Expertise_Exchange</span>
-          <div className="px-2 py-0.5 bg-electric-blue/10 border border-electric-blue/20 text-electric-blue text-[8px] font-bold">LIVE_FEED</div>
+          <span className="text-xs text-foreground/40 font-bold tracking-widest uppercase">Expertise_Exchange</span>
+          <div className="px-2 py-0.5 bg-electric-blue/10 border border-electric-blue/20 text-electric-blue text-[10px] font-bold">LIVE_FEED</div>
        </div>
        <div className="space-y-3">
           {[

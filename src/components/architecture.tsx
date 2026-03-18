@@ -29,14 +29,14 @@ export function Architecture() {
     <section id="architecture" className="py-32 px-4 relative overflow-hidden bg-black border-t border-white/5">
       <div className="mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-24">
-          <div className="mono text-electric-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-4">
+          <div className="mono text-electric-blue text-xs font-bold tracking-[0.4em] uppercase mb-4">
              Case Study: Proof of Concept
           </div>
           <h2 className="text-4xl font-extrabold tracking-tighter sm:text-7xl text-white mb-8">
             The Autonomous <br />
             <span className="text-gradient">Software Factory</span>
           </h2>
-          <p className="text-lg text-foreground/40 max-w-3xl mx-auto mono leading-relaxed">
+          <p className="text-xl text-foreground/60 max-w-3xl mx-auto mono leading-relaxed font-medium">
             Our technical moat: A 7-agent cluster that communicates <span className="text-white">exclusively through a Shared Filesystem</span>. 
             Agents are activated by file events, not API calls, ensuring a deterministic and highly scalable system state.
           </p>
@@ -58,8 +58,8 @@ export function Architecture() {
                    <div className="relative group">
                       <div className="absolute inset-0 bg-electric-blue/10 blur-3xl rounded-full animate-pulse-slow"></div>
                       <div className="relative h-28 w-28 border border-electric-blue/40 bg-black flex flex-col items-center justify-center shadow-[0_0_50px_rgba(0,137,255,0.1)]">
-                         <FileCode className="h-10 w-10 text-electric-blue mb-2" />
-                         <span className="mono text-[8px] font-bold text-electric-blue uppercase tracking-widest">Shared_FS</span>
+                         <FileCode className="h-10 w-10 text-electric-blue mb-2 shadow-[0_0_20px_rgba(0,137,255,0.2)]" />
+                         <span className="mono text-[10px] font-bold text-electric-blue uppercase tracking-[0.2em]">Shared_FS</span>
                       </div>
                       
                       {/* Radiating Signal Lines */}
@@ -84,8 +84,8 @@ export function Architecture() {
                 </div>
                 
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center">
-                   <div className="mono text-[9px] text-foreground/20 uppercase tracking-[0.2em] mb-1">State_Persistence</div>
-                   <div className="text-white font-bold text-xs mono tracking-tighter">Event-Driven Determinism</div>
+                   <div className="mono text-[11px] text-foreground/40 uppercase tracking-[0.2em] mb-1">State_Persistence</div>
+                   <div className="text-white font-bold text-sm mono tracking-tighter">Event-Driven Determinism</div>
                 </div>
              </div>
           </div>
@@ -108,7 +108,7 @@ export function Architecture() {
                    <Layers className="h-4 w-4" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2 mono tracking-tight">{item.mode}</h4>
-                <p className="text-[11px] text-foreground/40 mono leading-relaxed uppercase tracking-wider">{item.desc}</p>
+                <p className="text-xs text-foreground/60 mono leading-relaxed uppercase tracking-wider">{item.desc}</p>
              </div>
            ))}
         </div>
@@ -123,14 +123,14 @@ function AgentCard({ agent }: { agent: typeof agents[0] }) {
       initial={{ opacity: 0, x: -10 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className="p-5 border border-white/5 bg-white/[0.02] hover:border-electric-blue/30 transition-all flex items-center gap-5 group"
+      className="p-5 border border-white/5 bg-white/[0.02] glass-premium hover:border-electric-blue/30 transition-all flex items-center gap-5 group"
     >
       <div className="h-10 w-10 bg-electric-blue/5 flex items-center justify-center text-electric-blue border border-electric-blue/10 group-hover:border-electric-blue/40 transition-colors">
          <agent.icon className="h-5 w-5" />
       </div>
       <div className="flex-1 text-left">
-         <h4 className="text-xs font-bold text-white mb-1 mono uppercase tracking-widest">{agent.name}</h4>
-         <p className="text-[10px] text-foreground/30 leading-snug mono">{agent.desc}</p>
+         <h4 className="text-[13px] font-bold text-white mb-1 mono uppercase tracking-widest">{agent.name}</h4>
+         <p className="text-xs text-foreground/40 leading-snug mono">{agent.desc}</p>
       </div>
     </motion.div>
   );
