@@ -2,9 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Activity } from 'lucide-react';
+import { useToast } from '@/components/ui/toast';
 
 export function Footer() {
+  const { showToast } = useToast();
   return (
     <footer className="border-t border-white/5 bg-black py-24 px-4 md:px-8 font-mono">
       <div className="mx-auto max-w-7xl">
@@ -46,7 +48,14 @@ export function Footer() {
           <div className="space-y-6">
              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-electric-blue/50">Dev_Protocol</h4>
              <ul className="space-y-4 text-[10px] text-foreground/40 uppercase tracking-widest">
-                <li><Link href="#" className="hover:text-white transition-colors">Documentation</Link></li>
+                <li>
+                  <button 
+                    onClick={() => showToast('Documentation Coming Soon')}
+                    className="hover:text-white transition-colors cursor-pointer"
+                  >
+                    Documentation
+                  </button>
+                </li>
                 <li><Link href="#" className="hover:text-white transition-colors">API_Ref_v0.4</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">SDK_Instance</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Community_Hub</Link></li>
@@ -55,7 +64,7 @@ export function Footer() {
         </div>
         
         <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] text-foreground/20 uppercase tracking-widest">
-           <p>© 2024 Synctropic_Global // all_processes_synced</p>
+           <p>© 2026 Synctropic_Global // all_processes_synced</p>
            <div className="flex gap-8">
               <Link href="#" className="hover:text-electric-blue transition-colors">Privacy_Protocol</Link>
               <Link href="#" className="hover:text-electric-blue transition-colors">Terms_of_Init</Link>

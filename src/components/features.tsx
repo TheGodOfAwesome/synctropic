@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Zap, ShoppingBag, ArrowRight, Terminal as TerminalIcon, Code2, Shield, Activity } from 'lucide-react';
+import { Cpu, ShoppingBag, ArrowRight, Terminal as TerminalIcon, Code2, Shield, Activity } from 'lucide-react';
+import { useToast } from '@/components/ui/toast';
 
 const features = [
   {
@@ -142,6 +143,7 @@ const FeatureVisualization = ({ index }: { index: number }) => {
 };
 
 export function Features() {
+  const { showToast } = useToast();
   return (
     <section id="workflows" className="relative py-32 px-4 overflow-hidden bg-black">
       <div className="mx-auto max-w-7xl relative z-10">
@@ -177,7 +179,10 @@ export function Features() {
                   {feature.description}
                 </p>
                 <div className="flex items-center gap-6 pt-4">
-                  <button className="mono text-[11px] font-bold text-white uppercase tracking-widest flex items-center gap-3 group">
+                  <button 
+                    className="mono text-[11px] font-bold text-white uppercase tracking-widest flex items-center gap-3 group"
+                    onClick={() => showToast('Documentation Coming Soon')}
+                  >
                      Documentation <ArrowRight className="h-4 w-4 text-electric-blue transition-transform group-hover:translate-x-2" />
                   </button>
                 </div>

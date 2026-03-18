@@ -1,3 +1,5 @@
+'use client';
+
 import { Navbar } from '@/components/navbar';
 import { Hero } from '@/components/hero';
 import { Architecture } from '@/components/architecture';
@@ -5,8 +7,11 @@ import { HowItWorks } from '@/components/how-it-works';
 import { Features } from '@/components/features';
 import { MarketplacePreview } from '@/components/marketplace-preview';
 import { Footer } from '@/components/footer';
+import { useToast } from '@/components/ui/toast';
 
 export default function Home() {
+  const { showToast } = useToast();
+
   return (
     <main className="relative min-h-screen bg-black text-foreground selection:bg-electric-blue/30 overflow-x-hidden">
       <Navbar />
@@ -42,11 +47,17 @@ export default function Home() {
             Scale your process with Synctropic.
           </p>
           
-          <div className="mt-16 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="btn-primary scale-110">
+          <div className="mt-16 flex flex-col items-center justify-center gap-12 sm:flex-row">
+            <button 
+              className="btn-primary scale-110"
+              onClick={() => window.open('https://forms.gle/ya7BMirn4ff14qxH8', '_blank')}
+            >
               Apply_for_Early_Access
             </button>
-            <button className="btn-secondary scale-110">
+            <button 
+              className="btn-secondary scale-110"
+              onClick={() => showToast('Documentation Coming Soon')}
+            >
               Documentation
             </button>
           </div>

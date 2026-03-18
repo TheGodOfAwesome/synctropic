@@ -3,8 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cpu, Database, Network, Activity } from 'lucide-react';
+import { useToast } from '@/components/ui/toast';
 
 export function Hero() {
+  const { showToast } = useToast();
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-24 text-center bg-black">
       {/* Background Video / Fallback */}
@@ -66,10 +68,16 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-16 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <button className="btn-primary">
+          <button 
+            className="btn-primary"
+            onClick={() => window.open('https://forms.gle/ya7BMirn4ff14qxH8', '_blank')}
+          >
              Apply_for_Early_Access
           </button>
-          <button className="btn-secondary">
+          <button 
+            className="btn-secondary"
+            onClick={() => showToast('Documentation Coming Soon')}
+          >
              Read_Documentation
           </button>
         </motion.div>

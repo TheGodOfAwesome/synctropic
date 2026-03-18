@@ -27,8 +27,11 @@ export function Navbar() {
              <Activity className="h-3 w-3 animate-pulse" />
              NODE_CONNECTED
           </div>
-          <button className="btn-primary scale-90">
-            Launch_Platform
+          <button 
+            className="btn-primary scale-90"
+            onClick={() => window.open('https://forms.gle/ya7BMirn4ff14qxH8', '_blank')}
+          >
+            Apply_For_Early_Access
           </button>
         </div>
       </div>
